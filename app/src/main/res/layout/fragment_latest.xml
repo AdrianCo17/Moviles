@@ -26,20 +26,21 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_movies"
             android:layout_width="match_parent"
-            android:layout_height="630dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             tools:listitem="@layout/item_movie">
 
         </androidx.recyclerview.widget.RecyclerView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/buttonToPopular"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/populares"
                 android:src="@drawable/baseline_calendar_today" />
@@ -47,7 +48,7 @@
             <ImageButton
                 android:id="@+id/buttonToTopRating"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="@string/una_estrella"
                 android:src="@drawable/baseline_star_24" />
