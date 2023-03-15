@@ -28,7 +28,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_movies"
             android:layout_width="match_parent"
-            android:layout_height="613dp"
+            android:layout_height="630dp"
             tools:listitem="@layout/item_movie">
 
         </androidx.recyclerview.widget.RecyclerView>
@@ -40,7 +40,7 @@
 
             <ImageButton
                 android:id="@+id/buttonToTopRated"
-                android:layout_width="202dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:contentDescription="@string/una_estrella"
@@ -48,9 +48,9 @@
 
             <ImageButton
                 android:id="@+id/buttonToLatest"
-                android:layout_width="202dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:contentDescription="@string/nuevos"
                 android:src="@drawable/baseline_new_releases_24" />
 

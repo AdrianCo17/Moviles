@@ -26,8 +26,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_movies"
             android:layout_width="match_parent"
-            android:layout_height="622dp"
-            tools:listitem="@layout/item_movie" >
+            android:layout_height="630dp"
+            tools:listitem="@layout/item_movie">
 
         </androidx.recyclerview.widget.RecyclerView>
 
@@ -40,7 +40,7 @@
                 android:id="@+id/buttonToPopularTR"
                 android:layout_width="202dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:contentDescription="@string/populares"
                 android:src="@drawable/baseline_calendar_today" />
 
