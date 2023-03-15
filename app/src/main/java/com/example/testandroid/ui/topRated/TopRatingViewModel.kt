@@ -1,4 +1,4 @@
-package com.example.testandroid.ui.TopRated
+package com.example.testandroid.ui.topRated
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

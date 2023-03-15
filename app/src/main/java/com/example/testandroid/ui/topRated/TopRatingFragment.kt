@@ -1,4 +1,4 @@
-package com.example.testandroid.ui.TopRated
+package com.example.testandroid.ui.topRated
 
 import android.os.Bundle
 import android.util.Log
@@ -13,18 +13,17 @@ import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.testandroid.R
 import com.example.testandroid.data.entities.MovieEntity
-import com.example.testandroid.data.model.Movie
 import com.example.testandroid.data.model.ResourceStatus
 import com.example.testandroid.databinding.FragmentPopularBinding
+import com.example.testandroid.databinding.FragmentTopratingBinding
 import com.example.testandroid.ui.popular.PopularFragmentDirections
-import com.example.testandroid.utils.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class TopRatingFragment : Fragment(), TopRatingMovieItemAdapter.OnMovieClickListener {
 
-    private var _binding: FragmentPopularBinding? = null
+    private var _binding: FragmentTopratingBinding? = null
 
     private val binding get() = _binding!!
 
@@ -39,7 +38,7 @@ class TopRatingFragment : Fragment(), TopRatingMovieItemAdapter.OnMovieClickList
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentPopularBinding.inflate(inflater, container, false)
+        _binding = FragmentTopratingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -66,6 +65,9 @@ class TopRatingFragment : Fragment(), TopRatingMovieItemAdapter.OnMovieClickList
                 }
             }
         })
+        binding.buttonToPopular.setOnClickListener {
+            findNavController().navigate(R.id.action_topRatingFragment_to_homeFragment)
+        }
     }
 
     override fun onDestroyView() {
@@ -74,7 +76,8 @@ class TopRatingFragment : Fragment(), TopRatingMovieItemAdapter.OnMovieClickList
     }
 
     override fun onMovieClick(movieEntity: MovieEntity) {
-        val action = PopularFragmentDirections.actionHomeFragmentToDetailFragment(movieEntity)
+        val action = TopRatingFragmentDirections.actionTopRatingFragmentToDetailFragment(movieEntity)
         findNavController().navigate(action)
+
     }
 }

@@ -8,6 +8,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.navigation.fragment.findNavController
 import com.example.testandroid.R
 import com.example.testandroid.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,5 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
+
+
 }
