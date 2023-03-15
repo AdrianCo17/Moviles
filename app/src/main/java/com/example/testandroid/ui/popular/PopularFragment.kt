@@ -70,6 +70,10 @@ class PopularFragment : Fragment(), PopularMovieItemAdapter.OnMovieClickListener
             findNavController().navigate(R.id.action_homeFragment_to_topRatingFragment)
         }
 
+        binding.buttonToLatest.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_latestFragment)
+        }
+
 
     }
 

@@ -1,4 +1,4 @@
-package com.example.testandroid.ui.topRated
+package com.example.testandroid.ui.latest
 
 import android.os.Bundle
 import android.util.Log
@@ -14,31 +14,30 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.testandroid.R
 import com.example.testandroid.data.entities.MovieEntity
 import com.example.testandroid.data.model.ResourceStatus
-import com.example.testandroid.databinding.FragmentPopularBinding
+import com.example.testandroid.databinding.FragmentLatestBinding
 import com.example.testandroid.databinding.FragmentTopratingBinding
-import com.example.testandroid.ui.popular.PopularFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class TopRatingFragment : Fragment(), TopRatingMovieItemAdapter.OnMovieClickListener {
+class LatestFragment : Fragment(), LatestMovieItemAdapter.OnMovieClickListener {
 
-    private var _binding: FragmentTopratingBinding? = null
+    private var _binding: FragmentLatestBinding? = null
 
     private val binding get() = _binding!!
 
-    private val viewModel: TopRatingViewModel by navGraphViewModels(R.id.nav_graph) {
+    private val viewModel: LatestViewModel by navGraphViewModels(R.id.nav_graph) {
         defaultViewModelProviderFactory
     }
 
-    private lateinit var topratingMovieItemAdapter: TopRatingMovieItemAdapter
+    private lateinit var LatestMovieItemAdapter: LatestMovieItemAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentTopratingBinding.inflate(inflater, container, false)
+        _binding = FragmentLatestBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -48,15 +47,15 @@ class TopRatingFragment : Fragment(), TopRatingMovieItemAdapter.OnMovieClickList
 
         binding.rvMovies.layoutManager = LinearLayoutManager(context)
 
-        viewModel.fetchTopRatingMovies.observe(viewLifecycleOwner, Observer {
+        viewModel.fetchLatestMovies.observe(viewLifecycleOwner, Observer {
             when (it.resourceStatus) {
                 ResourceStatus.LOADING -> {
-                    Log.e("fetchTopRatingMovies", "Loading")
+                    Log.e("fetchLatestMovies", "Loading")
                 }
                 ResourceStatus.SUCCESS  -> {
-                    Log.e("fetchTopRatingMovies", "Success")
-                    topratingMovieItemAdapter = TopRatingMovieItemAdapter(it.data!!, this@TopRatingFragment)
-                    binding.rvMovies.adapter = topratingMovieItemAdapter
+                    Log.e("fetchLatestMovies", "Success")
+                    LatestMovieItemAdapter = LatestMovieItemAdapter(it.data!!, this@LatestFragment)
+                    binding.rvMovies.adapter =  LatestMovieItemAdapter
                 }
                 ResourceStatus.ERROR -> {
                     Log.e("fetchTopRatingMovies", "Failure: ${it.message} ")
@@ -65,11 +64,11 @@ class TopRatingFragment : Fragment(), TopRatingMovieItemAdapter.OnMovieClickList
                 }
             }
         })
-        binding.buttonToPopularTR.setOnClickListener {
-            findNavController().navigate(R.id.action_topRatingFragment_to_homeFragment)
+        binding.buttonToPopular.setOnClickListener {
+            findNavController().navigate(R.id.action_latestFragment_to_homeFragment)
         }
-        binding.buttonToLatestRT.setOnClickListener {
-            findNavController().navigate(R.id.action_topRatingFragment_to_homeFragment)
+        binding.buttonToTopRating.setOnClickListener {
+            findNavController().navigate(R.id.action_latestFragment_to_topRatingFragment)
         }
     }
 
@@ -79,7 +78,7 @@ class TopRatingFragment : Fragment(), TopRatingMovieItemAdapter.OnMovieClickList
     }
 
     override fun onMovieClick(movieEntity: MovieEntity) {
-        val action = TopRatingFragmentDirections.actionTopRatingFragmentToDetailFragment(movieEntity)
+        val action =  LatestFragmentDirections.actionLatestFragmentToDetailFragment(movieEntity)
         findNavController().navigate(action)
 
     }
