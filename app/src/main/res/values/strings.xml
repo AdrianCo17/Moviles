@@ -23,5 +23,6 @@
     <string name="populares">Populares</string>
     <string name="Latest">Latest Movies</string>
     <string name="nuevos">nuevos</string>
+    <string name="top_rated">top_rated</string>
 
 </resources>

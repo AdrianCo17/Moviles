@@ -65,16 +65,6 @@ class PopularFragment : Fragment(), PopularMovieItemAdapter.OnMovieClickListener
                 }
             }
         })
-
-        binding.buttonToTopRated.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_topRatingFragment)
-        }
-
-        binding.buttonToLatest.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_latestFragment)
-        }
-
-
     }
 
     override fun onDestroyView() {

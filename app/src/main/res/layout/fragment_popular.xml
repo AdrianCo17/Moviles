@@ -39,25 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/buttonToTopRated"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:contentDescription="@string/una_estrella"
-                android:src="@drawable/baseline_star_24" />
-
-            <ImageButton
-                android:id="@+id/buttonToLatest"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:contentDescription="@string/nuevos"
-                android:src="@drawable/baseline_new_releases_24" />
-
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
     </LinearLayout>
 

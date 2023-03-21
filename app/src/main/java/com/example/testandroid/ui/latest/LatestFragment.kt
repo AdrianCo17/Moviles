@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import androidx.lifecycle.ViewModelProvider
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -15,7 +16,6 @@ import com.example.testandroid.R
 import com.example.testandroid.data.entities.MovieEntity
 import com.example.testandroid.data.model.ResourceStatus
 import com.example.testandroid.databinding.FragmentLatestBinding
-import com.example.testandroid.databinding.FragmentTopratingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -33,11 +33,12 @@ class LatestFragment : Fragment(), LatestMovieItemAdapter.OnMovieClickListener {
     private lateinit var LatestMovieItemAdapter: LatestMovieItemAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentLatestBinding.inflate(inflater, container, false)
+
         return binding.root
     }
 
@@ -64,12 +65,6 @@ class LatestFragment : Fragment(), LatestMovieItemAdapter.OnMovieClickListener {
                 }
             }
         })
-        binding.buttonToPopular.setOnClickListener {
-            findNavController().navigate(R.id.action_latestFragment_to_homeFragment)
-        }
-        binding.buttonToTopRating.setOnClickListener {
-            findNavController().navigate(R.id.action_latestFragment_to_topRatingFragment)
-        }
     }
 
     override fun onDestroyView() {
